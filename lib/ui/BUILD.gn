@@ -97,6 +97,15 @@ source_set("ui") {
     "window/viewport_metrics.h",
     "window/window.cc",
     "window/window.h",
+  ] + [
+    "eko/processor.cc",
+    "eko/processor.h",
+    "eko/utils.h",
+    "eko/utils.cc",
+    "yoga/node.cc",
+    "yoga/node.h",
+    "yoga/rect.cc",
+    "yoga/rect.h",
   ]
 
   public_configs = [ "$flutter_root:config" ]
@@ -115,6 +124,9 @@ source_set("ui") {
 
   public_deps = [
     "$flutter_root/third_party/txt",
+  ] + [
+    "$flutter_root/third_party/google3",
+    "$flutter_root/third_party/yoga",
   ]
 
   if (is_fuchsia) {

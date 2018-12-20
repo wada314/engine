@@ -28,6 +28,10 @@
 #include "flutter/lib/ui/text/paragraph.h"
 #include "flutter/lib/ui/text/paragraph_builder.h"
 #include "flutter/lib/ui/window/window.h"
+
+#include "flutter/lib/ui/eko/processor.h"
+#include "flutter/lib/ui/yoga/node.h"
+
 #include "third_party/tonic/converter/dart_converter.h"
 #include "third_party/tonic/logging/dart_error.h"
 
@@ -95,6 +99,9 @@ void DartUI::InitForGlobal() {
 #if defined(OS_FUCHSIA)
     SceneHost::RegisterNatives(g_natives);
 #endif
+
+    EkoProcessor::RegisterNatives(g_natives);
+    YogaNode::RegisterNatives(g_natives);
 
     // Secondary isolates do not provide UI-related APIs.
     g_natives_secondary = new tonic::DartLibraryNatives();
